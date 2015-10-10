@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Name"
+        android:id="@+id/tvName"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="Age"
+    android:id="@+id/tvAge"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Username"
+        android:id="@+id/tvUsername"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Password"
+        android:id="@+id/tvPassword"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center" />
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="LogOut"
+        android:id="@+id/bLogout"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
