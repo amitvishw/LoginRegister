@@ -11,20 +11,29 @@
     android:layout_height="wrap_content"
     android:id="@+id/etUsernameLogin"
     android:layout_gravity="center_horizontal"
-    android:text="Username" />
+        android:hint="Username" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etPasswordLogin"
         android:layout_gravity="center_horizontal"
-        android:text="Passowrd" />
+        android:hint="Password" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/bLogIn"
         android:layout_gravity="center_horizontal"
-        android:text="LogIn" />
+        android:text="LogIn"
+        android:onClick="onLoginClick"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/bRegisterLink"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onLoginClick"/>
 
 </LinearLayout>

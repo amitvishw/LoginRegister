@@ -32,6 +32,7 @@ public class ServerRequest
         progressDialog.setCancelable(false);
         progressDialog.setTitle("Processing");
         progressDialog.setMessage("Please wait....");
+        System.out.println("--------------------------");
     }
 
     public void storeUserDataInBackground(User user, GetUserCallback userCallback)
@@ -39,20 +40,6 @@ public class ServerRequest
         progressDialog.show();
         new StoreUserDataAsyncTack(user,userCallback).execute();
     }
-
-
-
-
-
-    public void fetchUserDataInBackground(User user,GetUserCallback userCallback)
-    {
-        progressDialog.show();
-        new FetchUserDataAsyncTack(user,userCallback).execute();
-    }
-
-
-
-
     public class StoreUserDataAsyncTack extends AsyncTask<Void,Void,Void>
     {
         User user;
@@ -72,7 +59,7 @@ public class ServerRequest
             param.add(new BasicNameValuePair("username",user.username));
             param.add(new BasicNameValuePair("password", user.password));
             try {
-                URL url = new URL("http://localhost/postDemo.php");
+                URL url = new URL("http://192.168.0.102/register.php");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(15000);
                 urlConnection.setConnectTimeout(15000);
@@ -88,7 +75,7 @@ public class ServerRequest
                 urlConnection.connect();
                 InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                 String result = convertInputStreamToString(in);
-                System.out.println(result);
+                System.out.println("--------------------------"+result);
             }catch (Exception e)
             {
                 e.printStackTrace();
@@ -106,7 +93,11 @@ public class ServerRequest
 
 
 
-
+    public void fetchUserDataInBackground(User user,GetUserCallback userCallback)
+    {
+        progressDialog.show();
+        new FetchUserDataAsyncTack(user,userCallback).execute();
+    }
     public class FetchUserDataAsyncTack extends AsyncTask<Void,Void,User>
     {
         User user;
@@ -124,7 +115,7 @@ public class ServerRequest
             param.add(new BasicNameValuePair("username",user.username));
             param.add(new BasicNameValuePair("password", user.password));
             try {
-                URL url = new URL("http://localhost/postDemo.php");
+                URL url = new URL("http://192.168.0.102/login.php");
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setReadTimeout(15000);
                 urlConnection.setConnectTimeout(15000);
@@ -157,7 +148,7 @@ public class ServerRequest
         @Override
         protected void onPostExecute(User user)
         {   progressDialog.dismiss();
-            userCallback.done(null);
+            userCallback.done(user);
             super.onPostExecute(user);
         }
     }
